@@ -1,7 +1,11 @@
 import { useState } from "react";
 
-function PetItem({ pet }) {
+function PetItem(props) {
+
+  const { pet, myFunction } = props; // to define props, pet and my function
+
   const [xyz, setXyz] = useState (pet.image); // we have created a state with initail values of pet.image
+
   return (
     <div className="col-lg-4 col-md-8 col-sm-10">
       <div className="single-doctor">
@@ -11,7 +15,7 @@ function PetItem({ pet }) {
           <button type="button" className="btn btn-info" onClick={(event)=> setXyz(pet.image2)}> {/*to change picture when clicked*/}
             Pet
           </button>
-          <button type="button" class="btn btn-info  m-2">
+          <button type="button" class="btn btn-info  m-2" onClick={()=> myFunction(pet.id)} > {/*to make a function and push values*/}
             Adopt
           </button>
         </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import pets from "../petsData";
+import pets from "../petsData"; // we can call it waht ever we want perfer matching it with petsData
 import PetItem from "./PetItem";
 import petsData from "../petsData";
 
@@ -9,15 +9,26 @@ function PetsList() {
 
   const [type, setType]= useState (""); // always on top
 
-  let filterDataPets=pets.filter((pet)=>pet.name.includes(query)); // to filter, we make a new const called filteredDatapet and givt it a 
+  const [adopt,setAdopt]= useState(pets) // to show initial list from petsData
+
+  const handleAdopt = (idToBeRemoved)=>{ // idToBeRemoved call be called anything
+   let adoptedList = adopt.filter((pet)=> pet.id !== idToBeRemoved);
+   setAdopt(adoptedList);
+  }
+  // !== to remove
+  // handleAdopt must ,match one down, and adoptedlist to be set as set state setAdopt
+
+  let filterDataPets=adopt.filter((pet)=>pet.name.includes(query)); // to filter, we make a new const called filteredDatapet and givt it a 
   // filter on pets from petsData .. and to filetr it it should check the name at pet.name includes the query that was inputted
   // filter before map 
+  // we changed to adopt for this challange
 
   //now filter again by type
   let filterPetType =filterDataPets.filter((pet)=>pet.type.includes(type));
 
-  const petList = filterPetType.map((pet) => <PetItem pet={pet} key={pet.id} />);
+  const petList = filterPetType.map((pet) => <PetItem pet={pet} key={pet.id} myFunction={handleAdopt} />); // value in fuction must match top cont.
 // to filter, we use the anarky .. thereofr first we filter by name and then by type
+// myFunction { handleAdopt} called
   
   console.log(query)
   return (
