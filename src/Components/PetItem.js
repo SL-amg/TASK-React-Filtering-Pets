@@ -15,7 +15,7 @@ function PetItem(props) {
           <button type="button" className="btn btn-info" onClick={(event)=> setXyz(pet.image2)}> {/*to change picture when clicked*/}
             Pet
           </button>
-          <button type="button" class="btn btn-info  m-2" onClick={()=> myFunction(pet.id)} > {/*to make a function and push values*/}
+          <button type="button" class="btn btn-info  m-2" onClick={()=> props.myFunction(props.pet.id)} > {/*to make a function and push values*/}
             Adopt
           </button>
         </div>
