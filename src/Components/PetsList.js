@@ -14,7 +14,7 @@ function PetsList() {
   const handleAdopt = (idToBeRemoved)=>{ // idToBeRemoved call be called anything
    let adoptedList = adopt.filter((pet)=> pet.id !== idToBeRemoved);
    setAdopt(adoptedList);
-  }
+  } // functional component
   // !== to remove
   // handleAdopt must ,match one down, and adoptedlist to be set as set state setAdopt
 
@@ -38,7 +38,7 @@ function PetsList() {
           <div className="col-xxl-5 col-xl-6 col-lg-7">
             <div className="section-title text-center mb-30">
               <h1 className="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                Fur-ends
+                Fur-endsSsSs
               </h1>
               <div className="input-group rounded">
                 <input
